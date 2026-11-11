@@ -1,0 +1,677 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="light dark" />
+<meta name="description" content="Free CTC to in-hand salary calculator for India, FY 2026-27. Compare old vs new tax regime, PF, professional tax, HRA, gratuity — instant monthly take-home." />
+<link rel="icon" href="data:," />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<title>In-Hand Salary Calculator FY 2026-27 — CTC to Take-Home, Old vs New Regime</title>
+<script>
+  window.SITE_ADS = { publisherId: 'ca-pub-4405800574856346', enabled: true };
+  if (window.SITE_ADS.enabled && window.SITE_ADS.publisherId) {
+    var s = document.createElement('script');
+    s.async = true; s.crossOrigin = 'anonymous';
+    s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + window.SITE_ADS.publisherId;
+    document.head.appendChild(s);
+  }
+</script>
+<style>
+  :root{
+    --primary:#059669; --primary-d:#047857; --primary-500:#10b981; --primary-50:#ecfdf5; --primary-100:#d1fae5;
+    --ink:#1c1917; --ink2:#292524; --bg:#fafaf9; --card:#ffffff; --muted:#57534e; --line:#e7e5e4; --line2:#d6d3d1;
+    --soft:#ecfdf5; --warnbg:#fffbeb; --radius:12px; --shadow:0 10px 30px rgba(28,25,23,.08),0 2px 8px rgba(28,25,23,.05);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --bg:#0c0a09; --card:#1c1917; --ink:#f5f5f4; --muted:#a8a29e; --line:#292524; --line2:#44403c; --soft:#052e22; --warnbg:#292407; --ink2:#292524; }
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;font-size:16px;-webkit-font-smoothing:antialiased}
+  ::selection{background:#a7f3d0;color:#064e3b}
+  button,[role="button"],select,summary,input:not([type="checkbox"]){min-height:44px}
+  input[type="checkbox"],input[type="radio"]{min-height:auto}
+  input[type="radio"],input[type="checkbox"]{accent-color:#059669}
+  a{color:var(--primary-d)}
+  @media (prefers-color-scheme: dark){ a{color:#34d399} }
+  .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+  /* Landwind sticky light header */
+  header.top{background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:30}
+  @media (prefers-color-scheme: dark){ header.top{background:rgba(28,25,23,.92)} }
+  .top-in{display:flex;align-items:center;gap:20px;padding:12px 0;flex-wrap:wrap}
+  .brand{font-weight:800;font-size:1.25rem;letter-spacing:-.02em;color:var(--ink);display:flex;align-items:center;gap:9px}
+  .brand .mark{width:32px;height:32px;border-radius:9px;background:var(--primary);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:1rem;font-weight:800}
+  .brand span{color:var(--primary)}
+  nav.main{display:flex;gap:2px;flex-wrap:wrap;margin:0 auto}
+  nav.main a{color:var(--muted);text-decoration:none;font-size:.93rem;font-weight:500;padding:9px 11px;border-radius:8px;min-height:44px;display:inline-flex;align-items:center}
+  nav.main a:hover{background:var(--primary-50);color:var(--primary-d)}
+  @media (prefers-color-scheme: dark){ nav.main a:hover{background:#052e22;color:#6ee7b7} }
+  .cta-btn{display:inline-flex;align-items:center;justify-content:center;background:var(--primary);color:#fff !important;text-decoration:none;border-radius:9px;padding:11px 18px;font-weight:600;font-size:.93rem;min-height:44px;box-shadow:0 4px 14px rgba(5,150,105,.28)}
+  .cta-btn:hover{background:var(--primary-d)}
+  /* SaaS hero */
+  .hero{background:linear-gradient(180deg,#ecfdf5 0%,var(--bg) 100%);padding:52px 0 10px;text-align:center}
+  @media (prefers-color-scheme: dark){ .hero{background:linear-gradient(180deg,#052e22 0%,var(--bg) 100%)} }
+  .hero h1{font-size:clamp(1.9rem,5vw,3rem);line-height:1.12;margin:0 auto 14px;letter-spacing:-.03em;max-width:20em;font-weight:800}
+  .hero h1 .hl{color:var(--primary)}
+  .hero p{margin:0 auto;color:var(--muted);max-width:42em;font-size:1.08rem}
+  .hero .fy{display:inline-block;background:#fff;border:1px solid var(--primary-100);color:var(--primary-d);border-radius:999px;padding:5px 14px;font-size:.82rem;font-weight:600;margin-bottom:18px;box-shadow:0 1px 4px rgba(28,25,23,.06)}
+  @media (prefers-color-scheme: dark){ .hero .fy{background:#1c1917;color:#6ee7b7;border-color:#065f46} }
+  .stats{display:flex;justify-content:center;gap:0;flex-wrap:wrap;margin:26px auto 0;max-width:640px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+  .stat{flex:1 1 150px;padding:14px 10px;text-align:center}
+  .stat + .stat{border-left:1px solid var(--line)}
+  .stat b{display:block;font-size:1.02rem;letter-spacing:-.01em}
+  .stat span{font-size:.8rem;color:var(--muted)}
+  section{padding:38px 0 8px}
+  h2{font-size:1.6rem;letter-spacing:-.02em;margin:0 0 8px;color:var(--ink);font-weight:800}
+  h2 .accent{color:var(--primary)}
+  .sub{color:var(--muted);margin:0 0 20px;max-width:46em}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
+  .calc-grid{display:grid;grid-template-columns:1fr;gap:20px}
+  @media(min-width:900px){.calc-grid{grid-template-columns:400px 1fr}}
+  label.fl{display:block;font-weight:600;font-size:.92rem;margin:16px 0 6px}
+  label.fl:first-child{margin-top:0}
+  .hint{font-weight:400;color:var(--muted);font-size:.82rem}
+  input[type="number"],select{width:100%;padding:10px 12px;border:1.5px solid var(--line2);border-radius:9px;font-size:1rem;background:var(--card);color:var(--ink)}
+  input[type="number"]:focus,select:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 3px rgba(5,150,105,.18)}
+  input[type="range"]{width:100%;accent-color:var(--primary);min-height:36px}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .toggle-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-top:1px dashed var(--line);margin-top:14px}
+  .toggle-row .t-lab{font-weight:600;font-size:.92rem}
+  .switch{position:relative;width:52px;height:30px;flex:none;display:inline-block}
+  .switch input{appearance:none;-webkit-appearance:none;width:52px;height:30px;min-height:30px;margin:0;cursor:pointer;background:#d6d3d1;border-radius:999px;transition:.2s;position:relative;display:block;border:none}
+  .switch input::after{content:"";position:absolute;top:3px;left:3px;width:24px;height:24px;background:#fff;border-radius:50%;transition:.2s;box-shadow:0 1px 3px rgba(0,0,0,.3)}
+  .switch input:checked{background:var(--primary)}
+  .switch input:checked::after{left:25px}
+  .switch input:focus-visible{outline:2px solid var(--primary);outline-offset:2px}
+  .switch .tr{display:none}
+  fieldset{border:1px solid var(--line);border-radius:10px;padding:10px 14px 14px;margin:16px 0 0}
+  legend{font-weight:600;font-size:.9rem;padding:0 6px}
+  .radio-lab{display:flex;align-items:center;gap:9px;padding:9px 4px;cursor:pointer;font-size:.94rem;min-height:44px}
+  .old-box{background:var(--soft);border-radius:10px;padding:4px 14px 16px;margin-top:16px}
+  .old-box h3{margin:12px 0 0;font-size:.98rem;color:var(--primary-d)}
+  @media (prefers-color-scheme: dark){.old-box h3{color:#34d399}}
+  .verdict{border-radius:var(--radius);padding:16px 18px;font-weight:700;font-size:1.05rem;margin-bottom:16px;background:var(--primary-50);border:1.5px solid var(--primary);color:#065f46;box-shadow:var(--shadow)}
+  @media (prefers-color-scheme: dark){.verdict{background:#052e22;color:#6ee7b7}}
+  .regime-grid{display:grid;grid-template-columns:1fr;gap:16px}
+  @media(min-width:640px){.regime-grid{grid-template-columns:1fr 1fr}}
+  .regime{border:1.5px solid var(--line);border-radius:var(--radius);padding:20px;position:relative;background:var(--card);box-shadow:var(--shadow)}
+  .regime.winner{border-color:var(--primary);box-shadow:0 0 0 3px rgba(5,150,105,.15),var(--shadow)}
+  .win-tag{position:absolute;top:-12px;right:14px;background:var(--primary);color:#fff;font-size:.72rem;font-weight:700;padding:4px 12px;border-radius:999px;letter-spacing:.05em;text-transform:uppercase}
+  .regime h3{margin:0 0 4px;font-size:1rem}
+  .big-num{font-size:1.9rem;font-weight:800;letter-spacing:-.02em;color:var(--primary-d)}
+  @media (prefers-color-scheme: dark){.big-num{color:#6ee7b7}}
+  .big-num small{font-size:.85rem;font-weight:600;color:var(--muted)}
+  .kv{display:flex;justify-content:space-between;gap:10px;padding:6px 0;border-top:1px dashed var(--line);font-size:.9rem}
+  .kv b{font-variant-numeric:tabular-nums;white-space:nowrap}
+  table{width:100%;border-collapse:collapse;font-size:.92rem}
+  th,td{padding:9px 10px;text-align:right;font-variant-numeric:tabular-nums;border-bottom:1px solid var(--line)}
+  th:first-child,td:first-child{text-align:left}
+  thead th{background:var(--ink);color:#fff;font-weight:600}
+  thead th:first-child{border-radius:8px 0 0 0} thead th:last-child{border-radius:0 8px 0 0}
+  tbody tr.hl td{font-weight:700;background:var(--soft)}
+  .tbl-scroll{overflow-x:auto}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--ink);color:#fff;border:none;border-radius:9px;padding:12px 20px;font-size:1rem;font-weight:700;cursor:pointer;min-height:48px;text-decoration:none}
+  .btn:hover{background:#000}
+  .btn.ghost{background:transparent;color:var(--primary-d);border:1.5px solid var(--primary)}
+  .ad-slot{border:1.5px dashed var(--line2);border-radius:10px;min-height:96px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.8rem;margin:22px 0;background:var(--card)}
+  .features{display:grid;grid-template-columns:1fr;gap:16px}
+  @media(min-width:720px){.features{grid-template-columns:repeat(3,1fr)}}
+  .feat{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
+  .feat .ic{width:44px;height:44px;border-radius:10px;background:var(--primary-50);color:var(--primary-d);display:flex;align-items:center;justify-content:center;font-size:1.25rem;margin-bottom:12px}
+  @media (prefers-color-scheme: dark){ .feat .ic{background:#052e22;color:#6ee7b7} }
+  .feat h3{margin:0 0 6px;font-size:1.02rem}
+  .feat p{margin:0;color:var(--muted);font-size:.92rem}
+  .tool-grid{display:grid;grid-template-columns:1fr;gap:18px}
+  @media(min-width:820px){.tool-grid{grid-template-columns:1fr 1fr}}
+  .result-strip{background:var(--soft);border-radius:10px;padding:14px 16px;margin-top:16px;font-size:.95rem}
+  .result-strip .big-num{font-size:1.5rem}
+  article.guide{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px;margin-bottom:16px;box-shadow:var(--shadow)}
+  article.guide h3{margin:0 0 10px;font-size:1.2rem;letter-spacing:-.01em}
+  article.guide ul{padding-left:20px}
+  details.faq{border-bottom:1px solid var(--line);padding:2px 4px}
+  details.faq summary{cursor:pointer;font-weight:600;padding:15px 0;list-style:none;font-size:1rem}
+  details.faq summary::-webkit-details-marker{display:none}
+  details.faq summary::after{content:"+";float:right;color:var(--primary);font-weight:800}
+  details.faq[open ] summary::after{content:"3"}
+  details.faq p{color:var(--muted);margin:0 0 16px}
+  .faq-box{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:6px 22px;box-shadow:var(--shadow)}
+  .faq-box details.faq:last-child{border-bottom:none}
+  .note{background:var(--warnbg);border:1px solid #fde68a;border-radius:10px;padding:12px 16px;font-size:.9rem;margin-top:14px}
+  footer{background:var(--ink);color:#d6d3d1;margin-top:44px;padding:40px 0 34px}
+  footer h3{color:#fff;margin:0 0 10px;font-size:1rem}
+  footer p, footer li{font-size:.92rem}
+  footer a{color:#6ee7b7}
+  .foot-grid{display:grid;grid-template-columns:1fr;gap:26px}
+  @media(min-width:820px){.foot-grid{grid-template-columns:2fr 1fr 1fr}}
+  .foot-nav{display:flex;flex-direction:column;gap:2px}
+  .foot-nav a{padding:7px 0;min-height:44px;display:inline-flex;align-items:center;text-decoration:none}
+  @media(max-width:560px){ .hide-m{display:none} }
+  .fine{font-size:.8rem;color:#a8a29e;margin-top:26px;border-top:1px solid #292524;padding-top:18px}
+  .err{color:#b91c1c;font-size:.85rem;min-height:1.2em}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap top-in">
+    <div class="brand"><span class="mark">₹</span>InHand<span>Salary</span></div>
+    <nav class="main" aria-label="Main">
+      <a href="#calculator">Calculator</a>
+      <a href="#compare-table">₹6L–₹30L Table</a>
+      <a href="#gratuity">Gratuity</a>
+      <a href="#hra">HRA</a>
+      <a href="#guides">Guides</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="cta-btn" href="#calculator">Calculate free</a>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <span class="fy">FY 2026-27 · New + Old Regime · Budget 2026 slabs</span>
+    <h1>CTC to <span class="hl">In-Hand Salary</span> Calculator — India</h1>
+    <p>Enter your CTC and instantly see your real monthly take-home under <strong>both</strong> tax regimes — with PF, professional tax, HRA and all deductions broken down. Everything is calculated on your device; nothing is uploaded.</p>
+    <div class="stats" aria-label="Highlights">
+      <div class="stat"><b>FY 2026-27</b><span>Latest Budget slabs</span></div>
+      <div class="stat"><b>Old vs New</b><span>Both regimes compared</span></div>
+      <div class="stat"><b>100% Free</b><span>No sign-up, no upload</span></div>
+    </div>
+  </div>
+</div>
+
+<main class="wrap">
+
+  <!-- ============ CALCULATOR ============ -->
+  <section id="calculator">
+    <h2>Calculate your <span class="accent">in-hand salary</span></h2>
+    <p class="sub">Results update live as you type. The new-regime figures use the FY 2026-27 slabs (no tax up to ₹12 lakh taxable income with the Section 87A rebate).</p>
+
+    <div class="calc-grid">
+      <div class="card" aria-label="Inputs">
+        <label class="fl" for="ctc">Annual CTC (₹)</label>
+        <input type="number" id="ctc" value="1200000" min="0" step="1000" inputmode="numeric" />
+        <div class="err" id="ctcErr"></div>
+
+        <label class="fl" for="basicPct">Basic salary — <span id="basicPctVal">50%</span> of CTC <span class="hint">(slider)</span></label>
+        <input type="range" id="basicPct" min="20" max="80" step="1" value="50" />
+        <div class="hint">Most Indian companies keep basic at 40–50% of CTC. Basic = <b id="basicAmt">₹6,00,000</b>/yr</div>
+
+        <label class="fl" for="bonusPct">Bonus / variable pay (% of CTC)</label>
+        <input type="number" id="bonusPct" value="0" min="0" max="90" step="1" inputmode="numeric" />
+        <div class="hint">Part of your gross pay; taxed like salary. It does not change the total — it just shows the split.</div>
+
+        <div class="toggle-row">
+          <span class="t-lab">Employer PF is inside my CTC</span>
+          <label class="switch"><input type="checkbox" id="empPfIn" checked /><span class="tr"></span></label>
+        </div>
+        <div class="toggle-row" style="border-top:none;margin-top:0;padding-top:4px">
+          <span class="t-lab">Gratuity is inside my CTC</span>
+          <label class="switch"><input type="checkbox" id="gratIn" checked /><span class="tr"></span></label>
+        </div>
+        <div class="hint">Gratuity is counted at 4.81% of basic — money you only receive after 5 years, so it lowers today's in-hand pay.</div>
+
+        <fieldset>
+          <legend>Provident Fund (PF) mode</legend>
+          <label class="radio-lab"><input type="radio" name="pfmode" value="cap" checked /> Capped — ₹1,800/month (on the ₹15,000 wage ceiling)</label>
+          <label class="radio-lab"><input type="radio" name="pfmode" value="full" /> Full — 12% of basic salary</label>
+          <div class="hint">Employee PF mirrors the employer PF mode. Your PF is your own savings — it leaves your salary but stays yours in your EPF account.</div>
+        </fieldset>
+
+        <label class="fl" for="ptState">Professional tax — your work state <span class="hint">(approx. yearly amount)</span></label>
+        <select id="ptState">
+          <option value="2400" selected>Maharashtra — ₹2,400/yr (approx.)</option>
+          <option value="2400">Karnataka — ₹2,400/yr (approx.)</option>
+          <option value="2400">Tamil Nadu — ₹2,400/yr (approx.)</option>
+          <option value="2400">West Bengal — ₹2,400/yr (approx.)</option>
+          <option value="2400">Gujarat — ₹2,400/yr (approx., slab-based)</option>
+          <option value="2400">Telangana — ₹2,400/yr (approx.)</option>
+          <option value="2400">Other state with professional tax — ₹2,400/yr (approx.)</option>
+          <option value="0">No professional tax — Delhi / UP / Haryana / Punjab / Rajasthan — ₹0</option>
+        </select>
+
+        <div class="old-box">
+          <h3>Old-regime deductions (used only in the old-regime result)</h3>
+          <label class="fl" for="rent">Monthly house rent you pay (₹)</label>
+          <input type="number" id="rent" value="0" min="0" step="500" inputmode="numeric" />
+          <div class="toggle-row" style="border-top:none;margin-top:2px">
+            <span class="t-lab">I live in a metro city</span>
+            <label class="switch"><input type="checkbox" id="metro" /><span class="tr"></span></label>
+          </div>
+          <div class="hint">Metro = Delhi, Mumbai, Kolkata, Chennai, Bengaluru, Hyderabad, Pune, Ahmedabad (50% of basic HRA limit; 40% elsewhere). HRA received is assumed at 50% of basic — a common CTC structure.</div>
+          <div class="row2">
+            <div>
+              <label class="fl" for="c80">Other 80C investments (₹/yr)</label>
+              <input type="number" id="c80" value="0" min="0" step="1000" inputmode="numeric" />
+              <div class="hint">PPF, ELSS, LIC etc. Your employee PF is added automatically; total 80C is capped at ₹1.5 lakh.</div>
+            </div>
+            <div>
+              <label class="fl" for="d80">80D health insurance premium (₹/yr)</label>
+              <input type="number" id="d80" value="0" min="0" step="1000" inputmode="numeric" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="verdict" id="verdict">—</div>
+        <div class="regime-grid">
+          <div class="regime" id="cardNew">
+            <h3>New Regime</h3>
+            <div class="big-num" id="newMonthly">₹0 <small>/ month in-hand</small></div>
+            <div class="kv"><span>Annual in-hand</span><b id="newAnnual">₹0</b></div>
+            <div class="kv"><span>Gross salary</span><b id="newGross">₹0</b></div>
+            <div class="kv"><span>Taxable income</span><b id="newTaxable">₹0</b></div>
+            <div class="kv"><span>Total income tax</span><b id="newTax">₹0</b></div>
+            <div class="kv"><span>Effective tax rate</span><b id="newEff">0%</b></div>
+          </div>
+          <div class="regime" id="cardOld">
+            <h3>Old Regime</h3>
+            <div class="big-num" id="oldMonthly">₹0 <small>/ month in-hand</small></div>
+            <div class="kv"><span>Annual in-hand</span><b id="oldAnnual">₹0</b></div>
+            <div class="kv"><span>Gross salary</span><b id="oldGross">₹0</b></div>
+            <div class="kv"><span>Taxable income</span><b id="oldTaxable">₹0</b></div>
+            <div class="kv"><span>Total income tax</span><b id="oldTax">₹0</b></div>
+            <div class="kv"><span>Effective tax rate</span><b id="oldEff">0%</b></div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:14px">
+          <h3 style="margin:0 0 10px">Full breakdown</h3>
+          <div class="tbl-scroll">
+          <table aria-label="Salary breakdown">
+            <thead><tr><th>Component</th><th>New Regime</th><th>Old Regime</th></tr></thead>
+            <tbody id="breakBody"></tbody>
+          </table>
+          </div>
+          <p class="hint" style="margin-top:12px">Bonus/variable shown inside gross: <b id="bonusAmt">₹0</b>. Employer PF and gratuity are deducted from CTC to arrive at gross only when their toggles are ON.</p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px">
+            <button class="btn" id="dlCard" type="button">⬇ Download result card (PNG)</button>
+            <button class="btn ghost" id="copyRes" type="button">Copy result summary</button>
+          </div>
+          <div class="hint" id="copyMsg" role="status"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ad-slot" aria-hidden="true">Advertisement</div>
+  </section>
+
+
+  <!-- ============ FEATURES (Landwind icon cards) ============ -->
+  <section id="features">
+    <h2>Why use this <span class="accent">calculator</span></h2>
+    <p class="sub">Built for one job: turning an offer-letter CTC into the number that actually reaches your bank.</p>
+    <div class="features">
+      <div class="feat"><div class="ic">⇄</div><h3>Old vs New, side by side</h3><p>Both regimes computed together with a clear verdict on which one saves you more — down to the rupee per month.</p></div>
+      <div class="feat"><div class="ic">₹</div><h3>Every deduction, visible</h3><p>PF, gratuity, professional tax, HRA, 80C and 80D — each line shown separately, exactly like your payslip.</p></div>
+      <div class="feat"><div class="ic">🔒</div><h3>Private by design</h3><p>All maths runs in your browser. Your salary figures are never uploaded, stored or shared — there is no account.</p></div>
+    </div>
+  </section>
+
+  <!-- ============ REFERENCE TABLE ============ -->
+  <section id="compare-table">
+    <h2>In-hand salary for <span class="accent">₹6L – ₹30L CTC</span></h2>
+    <p class="sub">New regime, 50% basic, PF capped at ₹1,800/month, professional tax ₹2,400/yr, employer PF + gratuity inside CTC. Computed live by the same engine as the calculator above.</p>
+    <div class="card">
+      <div class="tbl-scroll">
+      <table aria-label="In-hand salary by CTC">
+        <thead><tr><th>Annual CTC</th><th class="hide-m">Gross salary</th><th class="hide-m">Income tax</th><th>Annual in-hand</th><th>Monthly in-hand</th></tr></thead>
+        <tbody id="refBody"></tbody>
+      </table>
+      </div>
+    </div>
+  </section>
+
+  <div class="ad-slot" aria-hidden="true">Advertisement</div>
+
+  <!-- ============ EXTRA TOOLS ============ -->
+  <section id="tools">
+    <h2>More free <span class="accent">salary tools</span></h2>
+    <p class="sub">Two calculators that come up in almost every salary discussion.</p>
+    <div class="tool-grid">
+
+      <div class="card" id="gratuity">
+        <h3 style="margin-top:0">Gratuity Calculator</h3>
+        <label class="fl" for="gSalary">Last drawn monthly salary — basic + DA (₹)</label>
+        <input type="number" id="gSalary" value="50000" min="0" step="1000" inputmode="numeric" />
+        <label class="fl" for="gYears">Years of service</label>
+        <input type="number" id="gYears" value="7" min="0" step="1" inputmode="numeric" />
+        <div class="result-strip">
+          <div class="hint">Your gratuity (15/26 × last salary × years)</div>
+          <div class="big-num" id="gOut">₹0</div>
+          <div id="gNote" class="hint"></div>
+        </div>
+        <p class="hint">Formula under the Payment of Gratuity Act: (15 ÷ 26) × last monthly salary × completed years. Payable only after <b>5 years</b> of continuous service with the same employer. Gratuity received is tax-exempt up to <b>₹20 lakh</b>.</p>
+      </div>
+
+      <div class="card" id="hra">
+        <h3 style="margin-top:0">HRA Calculator</h3>
+        <label class="fl" for="hBasic">Annual basic salary (₹)</label>
+        <input type="number" id="hBasic" value="600000" min="0" step="1000" inputmode="numeric" />
+        <label class="fl" for="hRecv">Annual HRA received (₹)</label>
+        <input type="number" id="hRecv" value="300000" min="0" step="1000" inputmode="numeric" />
+        <label class="fl" for="hRent">Annual rent paid (₹)</label>
+        <input type="number" id="hRent" value="240000" min="0" step="1000" inputmode="numeric" />
+        <div class="toggle-row">
+          <span class="t-lab">Metro city</span>
+          <label class="switch"><input type="checkbox" id="hMetro" checked /><span class="tr"></span></label>
+        </div>
+        <div class="result-strip">
+          <div class="kv" style="border-top:none"><span>HRA exempt (tax-free)</span><b id="hExempt">₹0</b></div>
+          <div class="kv"><span>Taxable HRA</span><b id="hTaxable">₹0</b></div>
+        </div>
+        <p class="hint">Exemption is the <b>least</b> of: (a) actual HRA received, (b) rent paid − 10% of basic, (c) 50% of basic (metro) or 40% (non-metro). HRA exemption is available only in the <b>old regime</b>.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="ad-slot" aria-hidden="true">Advertisement</div>
+
+  <!-- ============ GUIDES ============ -->
+  <section id="guides">
+    <h2>Guides — <span class="accent">understand your salary</span></h2>
+    <p class="sub">Short, plain-English explainers. No jargon, no fluff.</p>
+
+    <article class="guide">
+      <h3>How to Calculate In-Hand Salary from CTC</h3>
+      <p>Your CTC (Cost to Company) is everything your employer spends on you — not what reaches your bank account. To get from CTC to in-hand salary, work through these steps:</p>
+      <ul>
+        <li><strong>Step 1 — Remove the employer's hidden parts.</strong> If employer PF and gratuity sit inside your CTC, subtract them first. What remains is your <em>gross salary</em>.</li>
+        <li><strong>Step 2 — Find your taxable income.</strong> From gross salary, subtract the standard deduction (₹75,000 new regime / ₹50,000 old regime) and, in the old regime only, your HRA exemption, 80C, 80D and professional tax deductions. Professional tax is not deductible under the new regime.</li>
+        <li><strong>Step 3 — Apply the slab rates</strong> for FY 2026-27, then the Section 87A rebate, any surcharge, and the 4% health &amp; education cess. That gives your total income tax for the year (your monthly TDS is roughly this divided by 12).</li>
+        <li><strong>Step 4 — Subtract what leaves every month:</strong> your employee PF contribution and professional tax.</li>
+        <li><strong>Step 5 — Divide by 12.</strong> Gross − tax − employee PF − professional tax, divided by 12, is your monthly in-hand salary.</li>
+      </ul>
+      <p>Example: on a ₹12 lakh CTC (50% basic, PF capped, employer PF + gratuity inside CTC), gross salary is ₹11,49,540. Taxable income in the new regime is ₹10,74,540 after the ₹75,000 standard deduction (professional tax is not deductible under the new regime, though it is still deducted from your pay) — the tax on it (₹47,454) is fully wiped out by the Section 87A rebate, so income tax is <strong>zero</strong> and in-hand comes to ₹93,795 a month. Change any input above and watch each number move — that is the fastest way to learn your own payslip.</p>
+    </article>
+
+    <article class="guide">
+      <h3>New vs Old Tax Regime FY 2026-27: Which Is Better?</h3>
+      <p>The <strong>new regime</strong> offers lower slab rates, a ₹75,000 standard deduction, and a Section 87A rebate that wipes out tax on taxable income up to ₹12 lakh — but it gives up almost all deductions. The <strong>old regime</strong> keeps higher rates but lets you claim HRA exemption, 80C (₹1.5 lakh), 80D and more, with a ₹50,000 standard deduction.</p>
+      <p><strong>Choose the new regime if</strong> you pay little or no rent, have few investments in 80C, or your CTC is up to about ₹12.75 lakh (where new-regime tax is zero). For most salaried employees without a home loan or large HRA, the new regime wins — the verdict line on the calculator above tells you by exactly how much.</p>
+      <p><strong>Choose the old regime if</strong> your deductions are large: high rent with a big HRA component, full ₹1.5 lakh of 80C, health premiums, and home-loan interest can together cut taxable income by ₹4–6 lakh, which can beat the new regime's lower rates — typically at higher incomes. Run both numbers before you declare your regime to payroll; salaried employees can switch every year.</p>
+    </article>
+
+    <article class="guide">
+      <h3>Why Is In-Hand Salary Less Than CTC?</h3>
+      <p>Because CTC is the employer's total cost, and several parts of it never pass through your monthly bank credit:</p>
+      <ul>
+        <li><strong>Employer PF</strong> — the company's EPF contribution is inside CTC but goes straight to your PF account.</li>
+        <li><strong>Gratuity</strong> — about 4.81% of basic is set aside inside CTC and paid only after 5 years of service.</li>
+        <li><strong>Employee PF</strong> — your own 12% (or capped ₹1,800/month) is deducted from gross pay. It is still your money, just locked in EPF.</li>
+        <li><strong>Income tax (TDS)</strong> — deducted monthly based on your projected annual tax.</li>
+        <li><strong>Professional tax</strong> — a small state tax, roughly ₹200/month in states that levy it.</li>
+        <li><strong>Variable pay / bonus</strong> — counted in CTC but paid once or twice a year, not monthly.</li>
+      </ul>
+      <p>Add these up and a ₹12 lakh CTC commonly becomes roughly ₹9.8–11.3 lakh of actual annual take-home depending on the regime and PF mode. The gap is not your employer cheating you — it is how the CTC is packaged. Always negotiate and compare offers on <em>in-hand</em>, not CTC.</p>
+    </article>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section id="faq">
+    <h2>Frequently asked <span class="accent">questions</span></h2>
+    <p class="sub">The questions every salaried Indian Googles in April.</p>
+
+    <div class="faq-box">
+    <details class="faq"><summary>Is a ₹12.75 lakh salary tax-free in FY 2026-27?</summary>
+      <p>Yes, under the new regime. A gross salary of ₹12.75 lakh minus the ₹75,000 standard deduction gives a taxable income of exactly ₹12 lakh. At that level the Section 87A rebate (up to ₹60,000) cancels the entire tax, so your income tax is zero. Just above ₹12 lakh taxable, marginal relief ensures your tax never exceeds the amount by which your income crosses ₹12 lakh.</p></details>
+
+    <details class="faq"><summary>What is the standard deduction for FY 2026-27?</summary>
+      <p>₹75,000 under the new regime and ₹50,000 under the old regime. It is subtracted automatically from your salary income — no bills or proof needed.</p></details>
+
+    <details class="faq"><summary>Does CTC include employer PF and gratuity?</summary>
+      <p>In most Indian offer letters, yes. Employer PF (12% of basic or capped at ₹1,800/month) and gratuity (~4.81% of basic) are usually counted inside the CTC figure, which is why this calculator lets you toggle both. Check your offer's CTC breakup — if they are listed inside the total, keep the toggles ON.</p></details>
+
+    <details class="faq"><summary>What are the new-regime tax slabs for FY 2026-27?</summary>
+      <p>0–₹4 lakh: nil · ₹4–8 lakh: 5% · ₹8–12 lakh: 10% · ₹12–16 lakh: 15% · ₹16–20 lakh: 20% · ₹20–24 lakh: 25% · above ₹24 lakh: 30%. Plus 4% cess, and a surcharge of 10% / 15% / 25% when taxable income crosses ₹50 lakh / ₹1 crore / ₹2 crore. Budget 2026 left these slabs unchanged from FY 2025-26.</p></details>
+
+    <details class="faq"><summary>Is PF deducted from my in-hand salary?</summary>
+      <p>Yes — the employee's PF share is deducted from gross salary every month. With the wage-ceiling option it is ₹1,800/month; on full basic it is 12% of basic. The employer's matching share is separate and normally sits inside your CTC.</p></details>
+
+    <details class="faq"><summary>Which regime should I choose?</summary>
+      <p>For most people without large rent/HRA and deductions, the new regime is better — and it is the default if you don't choose. If your HRA exemption + 80C + 80D + home-loan interest together exceed roughly ₹4–5 lakh, run the old regime numbers above; the verdict line shows the exact saving either way.</p></details>
+
+    <details class="faq"><summary>What is professional tax?</summary>
+      <p>A small tax levied by some states on salaried employees, typically around ₹200 per month (₹2,400 a year, approximate — it varies by state and slab). States like Delhi, UP, Haryana, Punjab and Rajasthan do not levy it. It is deducted from your pay in both regimes, but it is deductible from taxable income only under the old regime — not under the new regime.</p></details>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid"><div><h3>InHandSalary</h3><p>Free CTC to in-hand salary calculator for India — old vs new regime, FY 2026-27.</p></div><div><h3>Tools</h3><nav class="foot-nav" aria-label="Tools"><a href="#calculator">In-Hand Calculator</a><a href="#gratuity">Gratuity Calculator</a><a href="#hra">HRA Calculator</a><a href="#compare-table">₹6L–₹30L Table</a></nav></div><div><h3>Trust</h3><nav class="foot-nav" aria-label="Trust pages"><a href="#about">About</a><a href="#privacy">Privacy Policy</a><a href="#terms">Terms</a><a href="#disclaimer">Disclaimer</a><a href="#contact">Contact</a></nav></div></div>
+
+    <h3 id="about">About InHandSalary</h3>
+    <p>InHandSalary is a free online calculator that converts an Indian CTC package into the actual monthly in-hand salary, comparing the new and old income-tax regimes for FY 2026-27. It exists because offer letters quote CTC — a number nobody actually receives — and most people only discover their real take-home from their first payslip. Our tools (in-hand calculator, gratuity calculator, HRA calculator) run entirely in your browser.</p>
+
+    <h3 id="privacy">Privacy Policy</h3>
+    <p><strong>Your calculations stay on your device.</strong> Every number you type is processed locally in your browser. We do not upload, store, or transmit your salary figures to any server, and there is no account or sign-up.</p>
+    <p><strong>Advertising cookies.</strong> This site is supported by Google AdSense. Google and its partners may use cookies (including the DART cookie) to serve ads based on your visits to this and other websites. You can opt out of personalised advertising at <a href="https://adssettings.google.com" rel="noopener" target="_blank">Google Ads Settings</a>, and learn how Google uses data from partner sites at <a href="https://policies.google.com/technologies/partner-sites" rel="noopener" target="_blank">policies.google.com/technologies/partner-sites</a>. Third-party vendors may also place and read cookies on your browser or use web beacons to collect information as a result of ad serving on this site. By using this site you consent to this cookie use; you can disable cookies in your browser settings at any time.</p>
+
+    <h3 id="terms">Terms of Use</h3>
+    <p>This website and its calculators are provided free of charge, "as is", for general information and estimation. You may use them for personal, non-commercial purposes. We may update tax slabs, formulas and content as rules change, without notice. Continued use of the site means you accept these terms.</p>
+
+    <h3 id="disclaimer">Disclaimer</h3>
+    <p>All results are <strong>estimates only and are not tax, legal, or financial advice</strong>. Actual in-hand salary depends on your employer's exact CTC structure, payroll policies, and declarations. Professional tax figures are approximate and vary by state and slab; surcharge at the highest incomes is simplified (the old regime's 37% surcharge above ₹5 crore is not modelled). Please verify important decisions with your payroll department or a qualified chartered accountant.</p>
+
+    <h3 id="contact">Contact</h3>
+    <p>Questions, corrections, or feedback: <a href="mailto:purushotamkumar8757118581@gmail.com">purushotamkumar8757118581@gmail.com</a></p>
+
+    <p class="fine">InHandSalary · FY 2026-27 slabs as per the Income-tax Act (Budget 2026 — slabs unchanged from FY 2025-26) · Made for salaried employees in India.<br />Theme: Landwind by Themesberg (MIT)</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var $ = function(id){ return document.getElementById(id); };
+  var fmt = function(n){ n = Math.round(n||0); return "₹" + n.toLocaleString("en-IN"); };
+  var num = function(id){ var v = parseFloat($(id).value); return isNaN(v)||v<0 ? 0 : v; };
+
+  function slabTax(taxable, regime){
+    var slabs = regime==="new"
+      ? [[400000,0],[800000,.05],[1200000,.10],[1600000,.15],[2000000,.20],[2400000,.25],[Infinity,.30]]
+      : [[250000,0],[500000,.05],[1000000,.20],[Infinity,.30]];
+    var tax=0, prev=0;
+    for (var i=0;i<slabs.length;i++){
+      if (taxable>prev){ tax += (Math.min(taxable,slabs[i][0])-prev)*slabs[i][1]; prev = slabs[i][0]; }
+      else break;
+    }
+    return tax;
+  }
+
+  function taxCalc(taxable, regime){
+    var before = slabTax(taxable, regime);
+    var rebate = 0;
+    if (regime==="new"){
+      if (taxable<=1200000) rebate = Math.min(before, 60000);
+    } else {
+      if (taxable<=500000) rebate = Math.min(before, 12500);
+    }
+    var after = before - rebate;
+    // Marginal relief (new regime): just above ₹12L, tax capped at excess over ₹12L
+    if (regime==="new" && taxable>1200000 && after > (taxable-1200000)) after = taxable-1200000;
+    var surRate = 0;
+    if (taxable>20000000) surRate = (regime==="old" && taxable>50000000) ? .37 : .25;
+    else if (taxable>10000000) surRate = .15;
+    else if (taxable>5000000) surRate = .10;
+    var surcharge = after * surRate;
+    var cess = (after + surcharge) * .04;
+    return { before:before, rebate:rebate, surcharge:surcharge, cess:cess, total: after+surcharge+cess };
+  }
+
+  function hraExempt(basic, hraRecv, rentAnnual, metro){
+    var b = Math.max(0, rentAnnual - .10*basic);
+    var c = basic * (metro ? .50 : .40);
+    return Math.max(0, Math.min(hraRecv, b, c));
+  }
+
+  function compute(o){
+    var basic = o.ctc * o.basicPct/100;
+    var pfBase = (o.pfMode==="cap") ? 21600 : .12*basic;
+    var empPF = o.empPfIn ? pfBase : pfBase; // employee PF always deducted from gross
+    var employerPF = pfBase;
+    var gratuity = o.gratIn ? .0481*basic : 0;
+    var gross = o.ctc - (o.empPfIn ? employerPF : 0) - gratuity;
+    if (gross<0) gross = 0;
+    var bonus = o.ctc * o.bonusPct/100;
+    var hraRecv = .50*basic;
+    var exemptHRA = hraExempt(basic, hraRecv, o.rent*12, o.metro);
+
+    // NEW regime — professional tax is NOT deductible under the new regime (Sec 16(iii) not available); only standard deduction applies
+    var taxNewIn = Math.max(0, gross - 75000);
+    var tN = taxCalc(taxNewIn, "new");
+    var inN = gross - empPF - o.pt - tN.total;
+
+    // OLD regime
+    var eff80C = Math.min(150000, empPF + o.c80);
+    var taxOldIn = Math.max(0, gross - 50000 - exemptHRA - eff80C - o.d80 - o.pt);
+    var tO = taxCalc(taxOldIn, "old");
+    var inO = gross - empPF - o.pt - tO.total;
+
+    return { basic:basic, employerPF:employerPF, empPF:empPF, gratuity:gratuity, gross:gross,
+      bonus:bonus, hraRecv:hraRecv, exemptHRA:exemptHRA, eff80C:eff80C,
+      n:{ taxable:taxNewIn, t:tN, inHand:inN },
+      o:{ taxable:taxOldIn, t:tO, inHand:inO } };
+  }
+
+  function readInputs(){
+    return { ctc:num("ctc"), basicPct:num("basicPct"), bonusPct:num("bonusPct"),
+      empPfIn:$("empPfIn").checked, gratIn:$("gratIn").checked,
+      pfMode: document.querySelector('input[name="pfmode"]:checked').value,
+      pt: parseFloat($("ptState").value)||0,
+      rent:num("rent"), metro:$("metro").checked, c80:num("c80"), d80:num("d80") };
+  }
+
+  var last = null;
+  function render(){
+    var o = readInputs();
+    $("basicPctVal").textContent = o.basicPct + "%";
+    $("ctcErr").textContent = (o.ctc===0) ? "Enter your annual CTC to see results." : "";
+    var r = compute(o); last = {o:o, r:r};
+    $("basicAmt").textContent = fmt(r.basic);
+    $("bonusAmt").textContent = fmt(r.bonus);
+
+    $("newMonthly").innerHTML = fmt(r.n.inHand/12) + " <small>/ month in-hand</small>";
+    $("newAnnual").textContent = fmt(r.n.inHand);
+    $("newGross").textContent = fmt(r.gross);
+    $("newTaxable").textContent = fmt(r.n.taxable);
+    $("newTax").textContent = fmt(r.n.t.total);
+    $("newEff").textContent = r.gross>0 ? (r.n.t.total/r.gross*100).toFixed(2)+"%" : "0%";
+    $("oldMonthly").innerHTML = fmt(r.o.inHand/12) + " <small>/ month in-hand</small>";
+    $("oldAnnual").textContent = fmt(r.o.inHand);
+    $("oldGross").textContent = fmt(r.gross);
+    $("oldTaxable").textContent = fmt(r.o.taxable);
+    $("oldTax").textContent = fmt(r.o.t.total);
+    $("oldEff").textContent = r.gross>0 ? (r.o.t.total/r.gross*100).toFixed(2)+"%" : "0%";
+
+    var diff = r.n.inHand - r.o.inHand;
+    var v = $("verdict");
+    if (Math.abs(diff) < 1) v.textContent = "Both regimes give you the same in-hand salary at this CTC.";
+    else if (diff>0) v.textContent = "✅ New regime saves you " + fmt(diff) + " per year (" + fmt(diff/12) + "/month) vs the old regime.";
+    else v.textContent = "✅ Old regime saves you " + fmt(-diff) + " per year (" + fmt(-diff/12) + "/month) vs the new regime.";
+    $("cardNew").classList.toggle("winner", diff>=0);
+    $("cardOld").classList.toggle("winner", diff<0);
+    document.querySelectorAll(".win-tag").forEach(function(e){e.remove();});
+    var tag = document.createElement("span"); tag.className="win-tag"; tag.textContent="Better for you";
+    (diff>=0 ? $("cardNew") : $("cardOld")).appendChild(tag);
+
+    function row(label, nv, ov, hl){
+      return "<tr"+(hl?' class="hl"':"")+"><td>"+label+"</td><td>"+nv+"</td><td>"+ov+"</td></tr>";
+    }
+    $("breakBody").innerHTML =
+      row("Annual CTC", fmt(o.ctc), fmt(o.ctc)) +
+      row("Basic salary", fmt(r.basic), fmt(r.basic)) +
+      row("Employer PF (in CTC)", o.empPfIn?fmt(r.employerPF):"—", o.empPfIn?fmt(r.employerPF):"—") +
+      row("Gratuity (in CTC)", o.gratIn?fmt(r.gratuity):"—", o.gratIn?fmt(r.gratuity):"—") +
+      row("Gross salary", fmt(r.gross), fmt(r.gross), true) +
+      row("Standard deduction", fmt(75000), fmt(50000)) +
+      row("HRA exemption", "—", fmt(r.exemptHRA)) +
+      row("80C deduction (incl. PF)", "—", fmt(r.eff80C)) +
+      row("80D deduction", "—", fmt(o.d80)) +
+      row("Professional tax (deduction)", "—", fmt(o.pt)) +
+      row("Taxable income", fmt(r.n.taxable), fmt(r.o.taxable), true) +
+      row("Tax before rebate", fmt(r.n.t.before), fmt(r.o.t.before)) +
+      row("Section 87A rebate", "− "+fmt(r.n.t.rebate), "− "+fmt(r.o.t.rebate)) +
+      row("Surcharge", fmt(r.n.t.surcharge), fmt(r.o.t.surcharge)) +
+      row("Cess (4%)", fmt(r.n.t.cess), fmt(r.o.t.cess)) +
+      row("Total income tax", fmt(r.n.t.total), fmt(r.o.t.total), true) +
+      row("Employee PF", fmt(r.empPF), fmt(r.empPF)) +
+      row("Professional tax (paid)", fmt(o.pt), fmt(o.pt)) +
+      row("Annual in-hand", fmt(r.n.inHand), fmt(r.o.inHand), true) +
+      row("Monthly in-hand", fmt(r.n.inHand/12), fmt(r.o.inHand/12), true);
+  }
+
+  // Reference table — same engine, fixed defaults
+  (function(){
+    var ctcs=[600000,800000,1000000,1200000,1500000,1800000,2000000,2500000,3000000];
+    var html="";
+    ctcs.forEach(function(c){
+      var r = compute({ctc:c,basicPct:50,bonusPct:0,empPfIn:true,gratIn:true,pfMode:"cap",pt:2400,rent:0,metro:false,c80:0,d80:0});
+      html += "<tr><td>"+fmt(c)+"</td><td class='hide-m'>"+fmt(r.gross)+"</td><td class='hide-m'>"+fmt(r.n.t.total)+"</td><td>"+fmt(r.n.inHand)+"</td><td><b>"+fmt(r.n.inHand/12)+"</b></td></tr>";
+    });
+    $("refBody").innerHTML = html;
+  })();
+
+  // Gratuity tool
+  function renderGrat(){
+    var s=num("gSalary"), y=num("gYears");
+    if (y<5){ $("gOut").textContent = fmt(0); $("gNote").textContent = "Not yet eligible — gratuity needs at least 5 years of service with the same employer."; return; }
+    var g = 15/26 * s * Math.floor(y);
+    $("gOut").textContent = fmt(g);
+    $("gNote").textContent = g>2000000 ? "Tax-exempt up to ₹20 lakh; the amount above that is taxable." : "Fully tax-exempt (within the ₹20 lakh exemption limit).";
+  }
+  // HRA tool
+  function renderHRA(){
+    var ex = hraExempt(num("hBasic"), num("hRecv"), num("hRent"), $("hMetro").checked);
+    $("hExempt").textContent = fmt(ex);
+    $("hTaxable").textContent = fmt(Math.max(0, num("hRecv")-ex));
+  }
+
+  ["ctc","basicPct","bonusPct","ptState","rent","c80","d80","gSalary","gYears","hBasic","hRecv","hRent"].forEach(function(id){
+    $(id).addEventListener("input", function(){ render(); renderGrat(); renderHRA(); });
+    $(id).addEventListener("change", function(){ render(); renderGrat(); renderHRA(); });
+  });
+  ["empPfIn","gratIn","metro","hMetro"].forEach(function(id){ $(id).addEventListener("change", function(){ render(); renderHRA(); }); });
+  document.querySelectorAll('input[name="pfmode"]').forEach(function(el){ el.addEventListener("change", render); });
+
+  $("copyRes").addEventListener("click", function(){
+    if(!last) return;
+    var r=last.r, diff=r.n.inHand-r.o.inHand;
+    var txt = "My in-hand salary (FY 2026-27, CTC "+fmt(last.o.ctc)+"):\nNew regime: "+fmt(r.n.inHand/12)+"/month · Old regime: "+fmt(r.o.inHand/12)+"/month\n"+(Math.abs(diff)<1?"Both regimes are equal.":(diff>0?"New":"Old")+" regime saves "+fmt(Math.abs(diff))+"/year.")+"\nCalculated on InHandSalary";
+    if (navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){ $("copyMsg").textContent="Copied — paste it anywhere to share."; }, function(){ $("copyMsg").textContent="Copy failed on this browser."; });
+    } else { $("copyMsg").textContent="Copy is not supported on this browser."; }
+  });
+
+  $("dlCard").addEventListener("click", function(){
+    if(!last) return;
+    var r=last.r, o=last.o;
+    var c=document.createElement("canvas"); c.width=1080; c.height=1080; var x=c.getContext("2d");
+    x.fillStyle="#17191d"; x.fillRect(0,0,1080,1080);
+    x.fillStyle="#059669"; x.fillRect(0,0,1080,14);
+    x.fillStyle="#ffffff"; x.font="700 44px system-ui, sans-serif"; x.fillText("InHandSalary",60,110);
+    x.fillStyle="#6ee7b7"; x.font="500 30px system-ui, sans-serif"; x.fillText("FY 2026-27 · CTC " + fmt(o.ctc), 60, 160);
+    x.fillStyle="#ffffff"; x.font="800 92px system-ui, sans-serif"; x.fillText(fmt(r.n.inHand/12), 60, 330);
+    x.font="500 34px system-ui, sans-serif"; x.fillStyle="#ccd1cc"; x.fillText("per month in-hand — New Regime", 60, 385);
+    x.font="600 40px system-ui, sans-serif"; x.fillStyle="#ffffff";
+    x.fillText("Annual in-hand:  " + fmt(r.n.inHand), 60, 500);
+    x.fillText("Old regime:  " + fmt(r.o.inHand/12) + "/month", 60, 575);
+    x.fillText("Income tax (new):  " + fmt(r.n.t.total), 60, 650);
+    x.fillText("Gross salary:  " + fmt(r.gross), 60, 725);
+    var diff=r.n.inHand-r.o.inHand;
+    x.fillStyle="#34d399"; x.font="700 40px system-ui, sans-serif";
+    x.fillText(Math.abs(diff)<1 ? "Both regimes equal" : ((diff>0?"New":"Old")+" regime saves "+fmt(Math.abs(diff))+"/yr"), 60, 830);
+    x.fillStyle="#9aa39c"; x.font="400 28px system-ui, sans-serif";
+    x.fillText("Free calculator · InHandSalary · Estimates only", 60, 990);
+    var a=document.createElement("a"); a.download="inhand-salary-card.png"; a.href=c.toDataURL("image/png"); a.click();
+  });
+
+  render(); renderGrat(); renderHRA();
+})();
+</script>
+</body>
+</html>
